@@ -1,0 +1,12 @@
+.wy-nav-content {
+    max-width: none;
+}
+
+.redbold {
+    color:red;
+    font-weight: bold;
+}
+.greenbold {
+    color: green;
+    font-weight: bold;
+}
