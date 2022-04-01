@@ -1,10 +1,10 @@
-.. py-template-poetry documentation master file, created by
+.. python-template-repo documentation master file, created by
    sphinx-quickstart on Thu Mar 31 17:41:32 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to py-template-poetry's documentation!
-==============================================
+Welcome to python-template-repo's documentation!
+================================================
 
 .. toctree::
    :maxdepth: 2

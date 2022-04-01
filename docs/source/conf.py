@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath("./../../python-template-repo"))
 
 # IF you have a specific tree structured, you might need to add your
 # module's path manually if sphinx does'nt find them
-# module_paths = ["../../py-template-poetry"]
+# module_paths = ["../../python-template-repo"]
 # exclude_modules = ["app_example", "other_module"]
 # for module_path in module_paths:
 #     for dir in os.listdir(module_path):
