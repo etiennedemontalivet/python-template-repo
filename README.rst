@@ -1,5 +1,5 @@
 ``python-template-repo`` README
-=============================
+===============================
 
 All of the following doc is WIP
 
