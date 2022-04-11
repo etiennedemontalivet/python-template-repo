@@ -51,7 +51,7 @@ extensions = [
     "sphinx.ext.autosectionlabel",
 ]
 
-# copy code button settings
+# copy code button settings: this won't be copied
 copybutton_prompt_text = ">>> "
 
 # numpydoc_class_members_toctree = True

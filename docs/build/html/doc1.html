@@ -45,12 +45,20 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">python-template-repo</span></code> README</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to use</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reproduce-step-by-step">Reproduce step-by-step</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#development-tools">Development tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#poetry"><code class="docutils literal notranslate"><span class="pre">poetry</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pre-commit">pre-commit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#black">black</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pylint">pylint</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-tools">Documentation tools</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sphinx">sphinx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autodoc-autosummary">autodoc, autosummary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sphinx-rtd-theme">sphinx_rtd_theme</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ide-tools">IDE tools</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#visual-studio-code">Visual Studio Code</a></li>
 </ul>
 </li>
@@ -86,51 +94,129 @@
              
   <section id="python-template-repo-readme">
 <h1><code class="docutils literal notranslate"><span class="pre">python-template-repo</span></code> README<a class="headerlink" href="#python-template-repo-readme" title="Permalink to this headline"></a></h1>
-<p>All of the following doc is WIP</p>
-<section id="how-to-use">
-<h2>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline"></a></h2>
-<p>WIP</p>
-</section>
-<section id="reproduce-step-by-step">
-<h2>Reproduce step-by-step<a class="headerlink" href="#reproduce-step-by-step" title="Permalink to this headline"></a></h2>
-<p>First, install <code class="docutils literal notranslate"><span class="pre">poetry</span></code> using following the online doc.
+<p>This template is for any beginner/intermediate level python coder. It does not pretend to be perfect.
+Some cool tools are missing (auto-versionning, …) but it is, I think, a solid start for one who
+wants to start a fresh python repo using basic tools for proper code <strong>and</strong> proper documentation.</p>
+<p>Please feel free to give any comment or feedback.</p>
+<section id="development-tools">
+<h2>Development tools<a class="headerlink" href="#development-tools" title="Permalink to this headline"></a></h2>
+<p>In order to create a new well-designed python repo, here are some basic tools that you could
+use.</p>
+<section id="poetry">
+<h3><code class="docutils literal notranslate"><span class="pre">poetry</span></code><a class="headerlink" href="#poetry" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">poetry</span></code> is a nice python management packages. Of course there are
+<a class="reference external" href="https://ahmed-nafies.medium.com/pip-pipenv-poetry-or-conda-7d2398adbac9">other alternatives</a>
+like <code class="docutils literal notranslate"><span class="pre">conda</span></code>, <code class="docutils literal notranslate"><span class="pre">pipenv</span></code>,… It is mandatory to work in a virtual environment with <code class="docutils literal notranslate"><span class="pre">python</span></code>,
+so you don’t have version package issues between your multiple <code class="docutils literal notranslate"><span class="pre">python</span></code> projects.</p>
+<p>First, install <code class="docutils literal notranslate"><span class="pre">poetry</span></code> following the <a class="reference external" href="https://python-poetry.org/docs/">poetry official doc</a>.
 Then, create a poetry repo:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">new</span> <span class="o">&lt;</span><span class="n">my</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="n">repo</span><span class="o">&gt;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry new &lt;my-python-repo&gt;
 </pre></div>
 </div>
-<p>Add the python <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file.</p>
-<p>Create a virtual env in the same folder (especially for <em>Visual Studio Code</em> users) and
-install some basics:</p>
+<p>Create a virtual env in the same folder (especially for <em>Visual Studio Code</em> users)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">.</span><span class="n">venv</span>
-<span class="n">poetry</span> <span class="n">add</span> <span class="n">pylint</span> <span class="n">pre</span><span class="o">-</span><span class="n">commit</span> <span class="n">black</span> <span class="n">isort</span> <span class="n">commitizen</span>
+</pre></div>
+</div>
+<p>Activate it:</p>
+<ul>
+<li><dl>
+<dt>Linux:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">Activate</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>Windows:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>\<span class="o">.</span><span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">activate</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>Add the python <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file. Copy paste the one ine the current repo or find one
+on <code class="docutils literal notranslate"><span class="pre">github</span></code>. Install some basics:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">add</span> <span class="n">pylint</span> <span class="n">pre</span><span class="o">-</span><span class="n">commit</span> <span class="n">black</span> <span class="n">isort</span> <span class="n">commitizen</span>
 <span class="n">poetry</span> <span class="n">add</span> <span class="n">sphinx</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">rtd</span><span class="o">-</span><span class="n">theme</span> <span class="n">sphinx_copybutton</span> <span class="n">numpydoc</span>
 </pre></div>
 </div>
+<p>Let see what they are.</p>
+</section>
 <section id="pre-commit">
 <h3>pre-commit<a class="headerlink" href="#pre-commit" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> allows you to execute a set of actions before commiting your code.
+You could check your code format, check that your notebooks are clean,…</p>
+<p>As it is told in the <a class="reference external" href="https://pre-commit.com/">pre-commit official doc</a>:</p>
+<blockquote>
+<div><p><em>Git hook scripts are useful for identifying simple issues before submission
+to code review. We run our hooks on every commit to automatically point out
+issues in code such as missing semicolons, trailing whitespace, and debug statements.
+By pointing these issues out before code review, this allows a code reviewer to focus on
+the architecture of a change while not wasting time with trivial style nitpicks.</em></p>
+</div></blockquote>
 <p>Copy past the <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file and install the pre-commit by running:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pre</span><span class="o">-</span><span class="n">commit</span> <span class="n">install</span>
 </pre></div>
 </div>
-<p>Or create your own following the <a class="reference external" href="https://pre-commit.com/">official pre-commit documentation</a></p>
+<p>Or create your own following the <a class="reference external" href="https://pre-commit.com/">pre-commit official doc</a></p>
 </section>
 <section id="black">
 <h3>black<a class="headerlink" href="#black" title="Permalink to this headline"></a></h3>
-<p>bla bla</p>
+<p><code class="docutils literal notranslate"><span class="pre">black</span></code> is a code formatter. As it is told in
+<a class="reference external" href="https://github.com/psf/black">black official doc</a>:</p>
+<blockquote>
+<div><p><em>Black is the uncompromising Python code formatter. By using it, you agree to
+cede control over minutiae of hand-formatting. In return, Black gives you speed,
+determinism, and freedom from pycodestyle nagging about formatting. You will save
+time and mental energy for more important matters.</em></p>
+</div></blockquote>
 </section>
 <section id="pylint">
 <h3>pylint<a class="headerlink" href="#pylint" title="Permalink to this headline"></a></h3>
-<p>bla bla</p>
+<p><code class="docutils literal notranslate"><span class="pre">pylint</span></code> is a code checker. As it is told in
+<a class="reference external" href="https://pylint.pycqa.org/en/latest/">pylint official doc</a>:</p>
+<blockquote>
+<div><p><em>Pylint is a tool that checks for errors in Python code, tries to enforce a coding
+standard and looks for code smells. It can also look for certain type errors, it
+can recommend suggestions about how particular blocks can be refactored and can offer
+you details about the code’s complexity.</em></p>
+</div></blockquote>
 </section>
+</section>
+<section id="documentation-tools">
+<h2>Documentation tools<a class="headerlink" href="#documentation-tools" title="Permalink to this headline"></a></h2>
+<p>I won’t get into too much details here, but still some that I find useful. A common tool to build
+and create doc in python is <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>. We will set up everything so we’ll have to get the less
+into the doc, the more into the code.</p>
 <section id="sphinx">
 <h3>sphinx<a class="headerlink" href="#sphinx" title="Permalink to this headline"></a></h3>
-<p>Create the basic sphinx files by executing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">doc</span>
-<span class="n">cd</span> <span class="n">doc</span>
+<p>Sphinx is a tool that makes it easy to create intelligent and beautiful documentation.
+See more details on the <a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx official doc</a>.</p>
+<p>To create the basic sphinx files, execute in your root directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">docs</span>
+<span class="n">cd</span> <span class="n">docs</span>
 <span class="n">sphinx</span><span class="o">-</span><span class="n">quickstart</span>
 </pre></div>
 </div>
+<p>All the configurations are set up in the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file. Copy/paste the one from this repo and
+change the <em>PAth setup</em> and <em>Project information</em> sections. Now what are the other options I added ?</p>
 </section>
+<section id="autodoc-autosummary">
+<h3>autodoc, autosummary<a class="headerlink" href="#autodoc-autosummary" title="Permalink to this headline"></a></h3>
+<p>These are the developers best friends as it allows to automatically parse the doc from the code.
+Just add an <code class="docutils literal notranslate"><span class="pre">api.rst</span></code> file as in this repo, and put the names of your python module
+from your code. The extensions will create an <code class="docutils literal notranslate"><span class="pre">autosummary_</span></code> folder that include the
+doc for your modules based on what is in the <code class="docutils literal notranslate"><span class="pre">_templates</span></code> directory. You can create other
+templates or change the existing if needed.</p>
+</section>
+<section id="sphinx-rtd-theme">
+<h3>sphinx_rtd_theme<a class="headerlink" href="#sphinx-rtd-theme" title="Permalink to this headline"></a></h3>
+<p>Sphinx allows you to build a doc based on a theme. The repo uses the readthedocs theme,
+but you can choose another one amongst the <a class="reference external" href="https://sphinx-themes.org/">multiple available themes</a></p>
+</section>
+</section>
+<section id="ide-tools">
+<h2>IDE tools<a class="headerlink" href="#ide-tools" title="Permalink to this headline"></a></h2>
 <section id="visual-studio-code">
 <h3>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permalink to this headline"></a></h3>
 <p>If you’re using VSCode, you could use this settings file:</p>
