@@ -1,0 +1,46 @@
+[tool.commitizen]
+name = "cz_customize"
+
+[tool.commitizen.customize]
+message_template = "{{subject}}({{ scope }}):{% if show_message %} {{message}}{% endif %}"
+example = "feature(brokers): added next_message method to message broker resource"
+schema = "<type>(<scope>): <body>"
+schema_pattern = "(feat|fix|perf|test|refactor|doc)(\\((apps|repo|libs|ml|notebooks|tools|visu)\\))?: (.+)"
+
+[[tool.commitizen.customize.questions]]
+type = "list"
+name = "subject"
+choices = [
+    { value = "feat", name = "feat: A new feature." },
+    { value = "fix", name = "fix: A bug fix." },
+    { value = "test", name = "test: A changes to tests only." },
+    { value = "perf", name = "perf: Performance enhancement that do not impact public API." },
+    { value = "refactor", name = "refactor: Changes that do not impact public API." },
+    { value = "doc", name = "doc: A changes to doc only." },
+]
+message = "Select the type of change you are committing"
+
+[[tool.commitizen.customize.questions]]
+choices = [
+    { value = "apps", name = "apps: Changes to applications." },
+    { value = "libs", name = "libs: Changes to libs." },
+    { value = "repo", name = "repo: Changes to repo." },
+    { value = "ml", name = "ml: Changes to Machine Learning library." },
+    { value = "tools", name = "tools: Changes to tools." },
+    { value = "visu", name = "visu: Changes to visu tools." },
+    { value = "notebooks", name = "notebooks: Changes to notebooks." },
+
+]
+type = "list"
+name = "scope"
+message = "Select the type of change you are committing"
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "message"
+message = "Body."
+
+[[tool.commitizen.customize.questions]]
+type = "confirm"
+name = "show_message"
+message = "Do you want to add body message in commit?"

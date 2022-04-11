@@ -6,6 +6,9 @@
 Welcome to python-template-repo's documentation!
 ================================================
 
+Please read the README section to see how to build your own python repository with all
+the basic and usefull python tools.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:

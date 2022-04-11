@@ -1,5 +1,5 @@
-``python-template-repo`` README
-===============================
+README
+======
 
 This template is for any beginner/intermediate level python coder. It does not pretend to be perfect.
 Some cool tools are missing (auto-versionning, ...) but it is, I think, a solid start for one who
@@ -14,8 +14,8 @@ Development tools
 In order to create a new well-designed python repo, here are some basic tools that you could
 use.
 
-``poetry``
-^^^^^^^^^^
+poetry
+^^^^^^
 
 ``poetry`` is a nice python management packages. Of course there are 
 `other alternatives <https://ahmed-nafies.medium.com/pip-pipenv-poetry-or-conda-7d2398adbac9>`_
@@ -29,24 +29,13 @@ Then, create a poetry repo:
 
     poetry new <my-python-repo>
 
-Create a virtual env in the same folder (especially for *Visual Studio Code* users)
+Create a virtual env in the same folder (especially for *Visual Studio Code* users) and activate it:
 
 .. code-block::
 
     python -m venv .venv
-
-Activate it:
-
-- Linux:
-    .. code-block::
-
-        source .venv/bin/Activate
-
-- Windows:
-
-    .. code-block::
-
-        .\.venv\Scripts\activate
+    source .venv/bin/Activate # Linux
+    .\.venv\Scripts\activate # Windows
 
 
 Add the python ``.gitignore`` file. Copy paste the one ine the current repo or find one 
@@ -107,26 +96,45 @@ pylint
     you details about the code's complexity.*
 
 The ``pylint`` settings are loaded from the ``.pylintrc`` file. You can see many options there.
-Feel free to change some of them to fit your code guidelines. For example, I have made somes changes:
+Feel free to change some of them to fit your code guidelines. For example, I have made somes 
+changes:
 
-- ``ignore-patterns``: now it ignores the files ending with ``_no_pylint.py``
-- ``variable-rgx``: I have updated the accepted variable names as in data science, ``X`` is a common name
+*ignore-patterns*
+    now it ignores the files ending with ``_no_pylint.py``
+
+*variable-rgx*
+    I have updated the accepted variable names as in data science, ``X`` is a common name
 
 
 isort
 ^^^^^
-TODO
+As it is told in the `isort official doc <https://pycqa.github.io/isort/>`_, *isort your 
+imports, so you don't have to*.
+
+    *isort is a Python utility / library to sort imports alphabetically, and automatically 
+    separated into sections and by type. It provides a command line utility, Python library
+    and plugins for various editors to quickly sort all your imports. It requires Python 3.6+
+    to run but supports formatting Python 2 code too.*
 
 
 commitizen
 ^^^^^^^^^^
-TODO
+As it is told in the `commitizen official doc <https://commitizen-tools.github.io/commitizen/>`_:
+
+    *Commitizen is a tool designed for teams.
+    Its main purpose is to define a standard way of committing rules and communicating it.
+    The reasoning behind it is that it is easier to read, and enforces writing descriptive commits.
+    Besides that, having a convention on your commits makes it possible to parse them and use 
+    them for something else, like generating automatically the version or a changelog.*
+
+You can customize it by modifying the ``.cz.toml`` file, especially the ``schema`` and 
+``schema_pattern`` entries. For more details, see their documentation.
 
 Documentation tools
 -------------------
 
 I won't get into too much details here, but still some that I find useful. A common tool to build
-and create doc in python is ``sphinx``. We will set up everything so we'll have to get the less
+and create doc in python is ``sphinx``. We will set up everything so we have to write the less
 into the doc, the more into the code.
 
 sphinx
@@ -156,6 +164,7 @@ change the *Path setup* and *Project information* sections.
 
 Now what are the options I added ?
 
+
 autodoc, autosummary, numpydoc
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -167,6 +176,12 @@ templates or change the existing if needed.
 
 As for ``numpydoc``, the extension allows to use numpy docstring format, which is the one I use.
 See an `example of numpy docstring <https://numpydoc.readthedocs.io/en/latest/example.html#example>`_.
+
+In this repo, I have coded fake modules and functions for you to see the results. Explore the few python
+files in this repo, and see the output automatically generated from these packages in the html doc.
+You could add in your doc some pages dedicated to whatever you want, such as in *Wonderfull explaination*
+from the ``doc2.rst`` file.
+
 
 sphinx_rtd_theme
 ^^^^^^^^^^^^^^^^
@@ -187,11 +202,15 @@ especially for code example.
 IDE tools
 ---------
 
+I only cover Visual Studio Code example for now, but there are mutliple nice IDE to use.
+The purpose of this section is to use nice settings to automatically perform some nice 
+actions, such as ``black`` or ``isort``.
+
 
 Visual Studio Code
 ^^^^^^^^^^^^^^^^^^
 
-If you're using VSCode, you could use this settings file:
+Using VSCode, you could use this settings file:
 
 .. code-block::
 
@@ -226,3 +245,20 @@ If you're using VSCode, you could use this settings file:
 .. note::
 
     The file is located in ``<my-python-repo>/.vscode/settings.json``
+
+"editor.formatOnSave": true
+    This will execute ``black`` each time you save a file.
+
+"editor.codeActionsOnSave": {"source.organizeImports": true,}
+    Organizing your import on save with ``isort``
+
+"autoDocstring.docstringFormat": "numpy"
+    If you use ``numpydoc``, you should definitely use the autodocstring extension from VSCode
+    that automatically generates fromatted docstrings for your code. Just fill them !
+
+
+Note also that using VSCode allows you to use very nice extentions such as:
+
+- GitLens
+- Python Extension Pack
+- ...

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>python-template-repo README &mdash; python_template_repo 0.1.0 documentation</title>
+  <title>README &mdash; python_template_repo 0.1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -44,18 +44,21 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">python-template-repo</span></code> README</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">README</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#development-tools">Development tools</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#poetry"><code class="docutils literal notranslate"><span class="pre">poetry</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#poetry">poetry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pre-commit">pre-commit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#black">black</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pylint">pylint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isort">isort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commitizen">commitizen</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#documentation-tools">Documentation tools</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sphinx">sphinx</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#autodoc-autosummary">autodoc, autosummary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autodoc-autosummary-numpydoc">autodoc, autosummary, numpydoc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sphinx-rtd-theme">sphinx_rtd_theme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sphinx-copybutton">sphinx_copybutton</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ide-tools">IDE tools</a><ul>
@@ -82,7 +85,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><code class="docutils literal notranslate"><span class="pre">python-template-repo</span></code> README</li>
+      <li>README</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/doc1.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -92,8 +95,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="python-template-repo-readme">
-<h1><code class="docutils literal notranslate"><span class="pre">python-template-repo</span></code> README<a class="headerlink" href="#python-template-repo-readme" title="Permalink to this headline"></a></h1>
+  <section id="readme">
+<h1>README<a class="headerlink" href="#readme" title="Permalink to this headline"></a></h1>
 <p>This template is for any beginner/intermediate level python coder. It does not pretend to be perfect.
 Some cool tools are missing (auto-versionning, …) but it is, I think, a solid start for one who
 wants to start a fresh python repo using basic tools for proper code <strong>and</strong> proper documentation.</p>
@@ -103,7 +106,7 @@ wants to start a fresh python repo using basic tools for proper code <strong>and
 <p>In order to create a new well-designed python repo, here are some basic tools that you could
 use.</p>
 <section id="poetry">
-<h3><code class="docutils literal notranslate"><span class="pre">poetry</span></code><a class="headerlink" href="#poetry" title="Permalink to this headline"></a></h3>
+<h3>poetry<a class="headerlink" href="#poetry" title="Permalink to this headline"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">poetry</span></code> is a nice python management packages. Of course there are
 <a class="reference external" href="https://ahmed-nafies.medium.com/pip-pipenv-poetry-or-conda-7d2398adbac9">other alternatives</a>
 like <code class="docutils literal notranslate"><span class="pre">conda</span></code>, <code class="docutils literal notranslate"><span class="pre">pipenv</span></code>,… It is mandatory to work in a virtual environment with <code class="docutils literal notranslate"><span class="pre">python</span></code>,
@@ -113,27 +116,12 @@ Then, create a poetry repo:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry new &lt;my-python-repo&gt;
 </pre></div>
 </div>
-<p>Create a virtual env in the same folder (especially for <em>Visual Studio Code</em> users)</p>
+<p>Create a virtual env in the same folder (especially for <em>Visual Studio Code</em> users) and activate it:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">.</span><span class="n">venv</span>
+<span class="n">source</span> <span class="o">.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">Activate</span> <span class="c1"># Linux</span>
+<span class="o">.</span>\<span class="o">.</span><span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">activate</span> <span class="c1"># Windows</span>
 </pre></div>
 </div>
-<p>Activate it:</p>
-<ul>
-<li><dl>
-<dt>Linux:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">Activate</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</li>
-<li><p>Windows:</p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>\<span class="o">.</span><span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">activate</span>
-</pre></div>
-</div>
-</div></blockquote>
-</li>
-</ul>
 <p>Add the python <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file. Copy paste the one ine the current repo or find one
 on <code class="docutils literal notranslate"><span class="pre">github</span></code>. Install some basics:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">add</span> <span class="n">pylint</span> <span class="n">pre</span><span class="o">-</span><span class="n">commit</span> <span class="n">black</span> <span class="n">isort</span> <span class="n">commitizen</span>
@@ -181,12 +169,45 @@ standard and looks for code smells. It can also look for certain type errors, it
 can recommend suggestions about how particular blocks can be refactored and can offer
 you details about the code’s complexity.</em></p>
 </div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">pylint</span></code> settings are loaded from the <code class="docutils literal notranslate"><span class="pre">.pylintrc</span></code> file. You can see many options there.
+Feel free to change some of them to fit your code guidelines. For example, I have made somes
+changes:</p>
+<dl class="simple">
+<dt><em>ignore-patterns</em></dt><dd><p>now it ignores the files ending with <code class="docutils literal notranslate"><span class="pre">_no_pylint.py</span></code></p>
+</dd>
+<dt><em>variable-rgx</em></dt><dd><p>I have updated the accepted variable names as in data science, <code class="docutils literal notranslate"><span class="pre">X</span></code> is a common name</p>
+</dd>
+</dl>
+</section>
+<section id="isort">
+<h3>isort<a class="headerlink" href="#isort" title="Permalink to this headline"></a></h3>
+<p>As it is told in the <a class="reference external" href="https://pycqa.github.io/isort/">isort official doc</a>, <em>isort your
+imports, so you don’t have to</em>.</p>
+<blockquote>
+<div><p><em>isort is a Python utility / library to sort imports alphabetically, and automatically
+separated into sections and by type. It provides a command line utility, Python library
+and plugins for various editors to quickly sort all your imports. It requires Python 3.6+
+to run but supports formatting Python 2 code too.</em></p>
+</div></blockquote>
+</section>
+<section id="commitizen">
+<h3>commitizen<a class="headerlink" href="#commitizen" title="Permalink to this headline"></a></h3>
+<p>As it is told in the <a class="reference external" href="https://commitizen-tools.github.io/commitizen/">commitizen official doc</a>:</p>
+<blockquote>
+<div><p><em>Commitizen is a tool designed for teams.
+Its main purpose is to define a standard way of committing rules and communicating it.
+The reasoning behind it is that it is easier to read, and enforces writing descriptive commits.
+Besides that, having a convention on your commits makes it possible to parse them and use
+them for something else, like generating automatically the version or a changelog.</em></p>
+</div></blockquote>
+<p>You can customize it by modifying the <code class="docutils literal notranslate"><span class="pre">.cz.toml</span></code> file, especially the <code class="docutils literal notranslate"><span class="pre">schema</span></code> and
+<code class="docutils literal notranslate"><span class="pre">schema_pattern</span></code> entries. For more details, see their documentation.</p>
 </section>
 </section>
 <section id="documentation-tools">
 <h2>Documentation tools<a class="headerlink" href="#documentation-tools" title="Permalink to this headline"></a></h2>
 <p>I won’t get into too much details here, but still some that I find useful. A common tool to build
-and create doc in python is <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>. We will set up everything so we’ll have to get the less
+and create doc in python is <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>. We will set up everything so we have to write the less
 into the doc, the more into the code.</p>
 <section id="sphinx">
 <h3>sphinx<a class="headerlink" href="#sphinx" title="Permalink to this headline"></a></h3>
@@ -198,28 +219,49 @@ See more details on the <a class="reference external" href="https://www.sphinx-d
 <span class="n">sphinx</span><span class="o">-</span><span class="n">quickstart</span>
 </pre></div>
 </div>
+<p>To build your documentation, just make it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">docs</span>
+<span class="n">make</span> <span class="n">html</span> <span class="c1"># Linux</span>
+<span class="n">make</span><span class="o">.</span><span class="n">bat</span> <span class="n">html</span>  <span class="c1"># Windows</span>
+</pre></div>
+</div>
 <p>All the configurations are set up in the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file. Copy/paste the one from this repo and
-change the <em>PAth setup</em> and <em>Project information</em> sections. Now what are the other options I added ?</p>
+change the <em>Path setup</em> and <em>Project information</em> sections.</p>
+<p>Now what are the options I added ?</p>
 </section>
-<section id="autodoc-autosummary">
-<h3>autodoc, autosummary<a class="headerlink" href="#autodoc-autosummary" title="Permalink to this headline"></a></h3>
-<p>These are the developers best friends as it allows to automatically parse the doc from the code.
+<section id="autodoc-autosummary-numpydoc">
+<h3>autodoc, autosummary, numpydoc<a class="headerlink" href="#autodoc-autosummary-numpydoc" title="Permalink to this headline"></a></h3>
+<p>These are the <strong>developers best friends</strong> as it allows to automatically parse the doc from the code.
 Just add an <code class="docutils literal notranslate"><span class="pre">api.rst</span></code> file as in this repo, and put the names of your python module
 from your code. The extensions will create an <code class="docutils literal notranslate"><span class="pre">autosummary_</span></code> folder that include the
 doc for your modules based on what is in the <code class="docutils literal notranslate"><span class="pre">_templates</span></code> directory. You can create other
 templates or change the existing if needed.</p>
+<p>As for <code class="docutils literal notranslate"><span class="pre">numpydoc</span></code>, the extension allows to use numpy docstring format, which is the one I use.
+See an <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/example.html#example">example of numpy docstring</a>.</p>
+<p>In this repo, I have coded fake modules and functions for you to see the results. Explore the few python
+files in this repo, and see the output automatically generated from these packages in the html doc.
+You could add in your doc some pages dedicated to whatever you want, such as in <em>Wonderfull explaination</em>
+from the <code class="docutils literal notranslate"><span class="pre">doc2.rst</span></code> file.</p>
 </section>
 <section id="sphinx-rtd-theme">
 <h3>sphinx_rtd_theme<a class="headerlink" href="#sphinx-rtd-theme" title="Permalink to this headline"></a></h3>
 <p>Sphinx allows you to build a doc based on a theme. The repo uses the readthedocs theme,
 but you can choose another one amongst the <a class="reference external" href="https://sphinx-themes.org/">multiple available themes</a></p>
 </section>
+<section id="sphinx-copybutton">
+<h3>sphinx_copybutton<a class="headerlink" href="#sphinx-copybutton" title="Permalink to this headline"></a></h3>
+<p>This is a extension that allow to easily copy/paste the code from your doc. That could be very useful,
+especially for code example.</p>
+</section>
 </section>
 <section id="ide-tools">
 <h2>IDE tools<a class="headerlink" href="#ide-tools" title="Permalink to this headline"></a></h2>
+<p>I only cover Visual Studio Code example for now, but there are mutliple nice IDE to use.
+The purpose of this section is to use nice settings to automatically perform some nice
+actions, such as <code class="docutils literal notranslate"><span class="pre">black</span></code> or <code class="docutils literal notranslate"><span class="pre">isort</span></code>.</p>
 <section id="visual-studio-code">
 <h3>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permalink to this headline"></a></h3>
-<p>If you’re using VSCode, you could use this settings file:</p>
+<p>Using VSCode, you could use this settings file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;python.defaultInterpreterPath&quot;</span><span class="p">:</span> <span class="s2">&quot;$</span><span class="si">{workspaceRoot}</span><span class="se">\\</span><span class="s2">.venv</span><span class="se">\\</span><span class="s2">Scripts</span><span class="se">\\</span><span class="s2">python.exe&quot;</span><span class="p">,</span>
     <span class="s2">&quot;files.exclude&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -253,6 +295,21 @@ but you can choose another one amongst the <a class="reference external" href="h
 <p class="admonition-title">Note</p>
 <p>The file is located in <code class="docutils literal notranslate"><span class="pre">&lt;my-python-repo&gt;/.vscode/settings.json</span></code></p>
 </div>
+<dl class="simple">
+<dt>“editor.formatOnSave”: true</dt><dd><p>This will execute <code class="docutils literal notranslate"><span class="pre">black</span></code> each time you save a file.</p>
+</dd>
+<dt>“editor.codeActionsOnSave”: {“source.organizeImports”: true,}</dt><dd><p>Organizing your import on save with <code class="docutils literal notranslate"><span class="pre">isort</span></code></p>
+</dd>
+<dt>“autoDocstring.docstringFormat”: “numpy”</dt><dd><p>If you use <code class="docutils literal notranslate"><span class="pre">numpydoc</span></code>, you should definitely use the autodocstring extension from VSCode
+that automatically generates fromatted docstrings for your code. Just fill them !</p>
+</dd>
+</dl>
+<p>Note also that using VSCode allows you to use very nice extentions such as:</p>
+<ul class="simple">
+<li><p>GitLens</p></li>
+<li><p>Python Extension Pack</p></li>
+<li><p>…</p></li>
+</ul>
 </section>
 </section>
 </section>
