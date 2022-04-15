@@ -10,7 +10,7 @@ Please feel free to give any comment or feedback.
 
 .. note::
 
-    You can read this doc on the `lice github page 
+    You can read this doc on the `nice github page 
     <https://etiennedemontalivet.github.io/python-template-repo>`_ (with the generated
     html doc) or on the `github code
     <https://github.com/etiennedemontalivet/python-template-repo>`_ page.
