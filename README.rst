@@ -1,12 +1,19 @@
 README
 ======
 
-This template is for any beginner/intermediate level python coder. It does not pretend to be perfect.
-Some cool tools are missing (auto-versionning, ...) but it is, I think, a solid start for one who
-wants to start a fresh python repo using basic tools for proper code **and** proper documentation.
+This template is for any beginner/intermediate level python coder. It does not pretend to 
+be perfect. Some cool tools are missing (auto-versionning, ...) but it is, I think, a solid 
+start for one who wants to start a fresh python repo using basic tools for proper code
+**and** proper documentation.
 
 Please feel free to give any comment or feedback.
 
+.. note::
+
+    You can read this doc on the `lice github page 
+    <https://etiennedemontalivet.github.io/python-template-repo>`_ (with the generated
+    html doc) or on the `github code
+    <https://github.com/etiennedemontalivet/python-template-repo>`_ page.
 
 Development tools
 -----------------
